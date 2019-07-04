@@ -79,34 +79,15 @@
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="..\src\agent.cpp" />
-    <ClCompile Include="..\src\configfileexception.cpp" />
-    <ClCompile Include="..\src\configreader.cpp" />
-    <ClCompile Include="..\src\configsaxhandler.cpp" />
     <ClCompile Include="..\src\daemon.cpp" />
-    <ClCompile Include="..\src\dhapikeypermissionexception.cpp" />
-    <ClCompile Include="..\src\dhapirecordnotfoundexception.cpp" />
-    <ClCompile Include="..\src\dhsaxhandler.cpp" />
-    <ClCompile Include="..\src\dhxmlreader.cpp" />
-    <ClCompile Include="..\src\httpclient.cpp" />
-    <ClCompile Include="..\src\httpclientexception.cpp" />
-    <ClCompile Include="..\src\malformedxmlexception.cpp" />
-    <ClCompile Include="..\src\parameters.cpp" />
-    <ClCompile Include="..\src\util.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\configfileexception.hpp" />
-    <ClInclude Include="..\src\configreader.hpp" />
-    <ClInclude Include="..\src\configsaxhandler.hpp" />
     <ClInclude Include="..\src\daemon.hpp" />
-    <ClInclude Include="..\src\dhapikeypermissionexception.hpp" />
-    <ClInclude Include="..\src\dhapirecordnotfoundexception.hpp" />
-    <ClInclude Include="..\src\dhsaxhandler.hpp" />
-    <ClInclude Include="..\src\dhxmlreader.hpp" />
-    <ClInclude Include="..\src\httpclient.hpp" />
-    <ClInclude Include="..\src\httpclientexception.hpp" />
-    <ClInclude Include="..\src\malformedxmlexception.hpp" />
-    <ClInclude Include="..\src\parameters.hpp" />
-    <ClInclude Include="..\src\util.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Windows\LibSleepy\LibSleepy.vcxproj">
+      <Project>{143f9f49-6f51-4472-b0bc-346150a86782}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
@@ -116,7 +97,43 @@
     </Link>
     <ClCompile>
       <AdditionalOptions>-I/usr/include/x86_64-linux-gnu -I/usr/include/uuid</AdditionalOptions>
-      <AdditionalIncludeDirectories>/usr/include/x86_64-linux-gnu/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Verbose>true</Verbose>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../LibSleepy/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../LibSleepy/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../LibSleepy/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../LibSleepy/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../LibSleepy/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../LibSleepy/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
