@@ -1,9 +1,7 @@
 # DHDynamicDNSAgent
 
-Simple Linux DDNS like client daemon for Dreamhost DNS api.
+## Simple Linux DDNS like client daemon for Dreamhost DNS api.
 
-This project is undergoing massive rewrite.
+Notice: This project is undergoing massive rewrite.
 
 - C++ Linux Project is under heavy development. Most of the existing code is being rewritten.
-
-Testing Signing
